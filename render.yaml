@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: myntra-data-collector
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: PORT
+        value: "8000"
+      - key: MYNTRA_BASE_URL
+        value: https://www.myntra.com
+      - key: REQUEST_DELAY
+        value: "1.2"
+      - key: REQUEST_TIMEOUT
+        value: "20"
+      - key: MAX_RETRIES
+        value: "2"
+      - key: MAX_CONCURRENCY
+        value: "2"
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: DATABASE_URL
+        sync: false

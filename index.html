@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Myntra Data Collector & Report Builder</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="top"><div><div class="eyebrow">PUBLIC DATA COLLECTION</div><h1>Myntra Data Collector <span>&</span> Report Builder</h1></div>
+<button id="theme" class="icon">◐</button></header>
+<main>
+<section class="panel controls">
+  <div class="step"><label>01 · Category</label><select id="category"><option>Loading...</option></select></div>
+  <div class="step"><label>02 · Gender / Segment</label><select id="gender" disabled><option>Select category first</option></select></div>
+  <div class="step"><label>03 · Product Type</label><select id="ptype" disabled><option>Select gender first</option></select></div>
+  <div class="step"><label>04 · Products</label><select id="limit"><option>50</option><option selected>100</option><option>250</option><option>500</option><option>Custom</option></select><input id="customLimit" type="number" min="1" max="5000" placeholder="Custom limit" hidden></div>
+  <button id="collect" class="primary">Collect Products →</button>
+</section>
+<section class="stats">
+  <div><small>DISCOVERED</small><b id="discovered">0</b></div><div><small>COLLECTED</small><b id="collected">0</b></div>
+  <div><small>MISSING FIELDS</small><b id="missing">0</b></div><div><small>ERRORS</small><b id="errors">0</b></div>
+</section>
+<section id="jobPanel" class="panel job hidden"><div class="jobhead"><div><b id="jobId">—</b><span id="jobStatus">—</span></div><div id="jobStage">Waiting</div></div><div class="bar"><i id="bar"></i></div><div class="jobmeta"><span id="jobMessage">No collection running.</span><span id="jobProgress">0</span></div></section>
+<section class="panel data">
+  <div class="toolbar"><input id="search" placeholder="Search brand, product, ID..."><button id="group">Group by Brand</button><button id="excel" disabled>Export Excel</button><button id="pdf" disabled>Export PDF</button></div>
+  <div class="tablewrap"><table><thead><tr><th>#</th><th>Brand</th><th>Product</th><th>Product ID</th><th>MRP</th><th>Price</th><th>Discount</th><th>Rating</th><th>Ratings</th><th>Reviews</th><th>Verified</th><th>5★</th><th>4★</th><th>3★</th><th>2★</th><th>1★</th><th>Seller</th><th>Category</th><th>Gender</th><th>Type</th><th>URL</th><th>Collected</th></tr></thead><tbody id="tbody"><tr><td colspan="22" class="empty">No real data collected yet.</td></tr></tbody></table></div>
+</section>
+</main>
+<div id="toast"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
